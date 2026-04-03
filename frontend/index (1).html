@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jarurat Care – Cancer Support Community</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="./style.css" />
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav class="navbar">
+    <div class="nav-logo">🎗️ Jarurat Care</div>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#register">Get Support</a></li>
+      <li><a href="#volunteer">Volunteer</a></li>
+      <li><a href="#chatbot" class="nav-cta">Ask AI</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">India's Largest Cancer Care Community</span>
+      <h1>You Don't Have To<br /><span class="accent">Face Cancer Alone</span></h1>
+      <p class="hero-sub">
+        Jarurat Care connects cancer patients and families with caregivers, mentors,
+        and a community that truly understands. Together, we heal.
+      </p>
+      <div class="hero-btns">
+        <a href="#register" class="btn-primary">Get Support</a>
+        <a href="#register" class="btn-outline">Become a Volunteer</a>
+      </div>
+      <div class="hero-stats">
+        <div class="stat"><span>12,000+</span><p>Families Supported</p></div>
+        <div class="stat"><span>800+</span><p>Volunteer Caregivers</p></div>
+        <div class="stat"><span>28</span><p>Cities in India</p></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="ribbon-circle">
+        <div class="ribbon-inner">💛</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section id="about" class="about">
+    <div class="section-label">Our Mission</div>
+    <h2>What We Do</h2>
+    <div class="cards">
+      <div class="card">
+        <div class="card-icon">🔬</div>
+        <h3>Awareness</h3>
+        <p>Raising awareness about preventive measures for rare and common cancers across India through campaigns, workshops and community drives.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🤝</div>
+        <h3>Caregiver Mentorship</h3>
+        <p>Providing vital mentorship to caregivers who support cancer patients — reducing burnout and building emotional resilience.</p>
+      </div>
+      <div class="card">
+        <div class="card-icon">🌐</div>
+        <h3>Support Network</h3>
+        <p>Building a sustainable peer-to-peer support network so every family facing cancer has access to real human connection and guidance.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- REGISTRATION FORM -->
+  <section id="register" class="form-section">
+    <div class="form-container">
+      <div class="form-left">
+        <div class="section-label">Join Us</div>
+        <h2>Register for Support<br />or Volunteer</h2>
+        <p>Whether you're a patient, caregiver, or someone who wants to help — we're here for you. Fill in the form and our team will reach out within 24 hours.</p>
+        <ul class="form-promises">
+          <li>✅ Free of cost support</li>
+          <li>✅ Confidential & compassionate</li>
+          <li>✅ Response within 24 hours</li>
+        </ul>
+      </div>
+      <div class="form-right">
+        <div class="type-toggle">
+          <button class="toggle-btn active" onclick="setType('patient', this)">🏥 I Need Support</button>
+          <button class="toggle-btn" onclick="setType('volunteer', this)">🙋 I Want to Volunteer</button>
+        </div>
+        <form id="registerForm">
+          <input type="hidden" id="type" value="patient" />
+          <div class="form-group">
+            <label>Full Name *</label>
+            <input type="text" id="name" placeholder="Your full name" required />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label>Email *</label>
+              <input type="email" id="email" placeholder="you@email.com" required />
+            </div>
+            <div class="form-group">
+              <label>Phone *</label>
+              <input type="tel" id="phone" placeholder="+91 98765 43210" required />
+            </div>
+          </div>
+          <div class="form-group">
+            <label>Your Message (optional)</label>
+            <textarea id="message" rows="3" placeholder="Tell us a little about yourself or how we can help..."></textarea>
+          </div>
+          <button type="submit" class="submit-btn" id="submitBtn">Submit Registration</button>
+          <div id="formMsg" class="form-msg"></div>
+        </form>
+      </div>
+    </div>
+  </section>
+
+  <!-- AI CHATBOT -->
+  <section id="chatbot" class="chatbot-section">
+    <div class="section-label">AI Feature</div>
+    <h2>Ask Our AI Assistant</h2>
+    <p class="chatbot-desc">Get instant answers to your questions about cancer care, support programs, volunteering, and more. Powered by Claude AI.</p>
+    <div class="chat-window">
+      <div class="chat-messages" id="chatMessages">
+        <div class="chat-bubble bot">
+          👋 Hello! I'm the Jarurat Care AI assistant. I can help you with questions about cancer support, our programs, volunteering, and caregiver resources. How can I help you today?
+        </div>
+      </div>
+      <div class="chat-suggestions">
+        <button onclick="askSuggestion(this)">How can I join as a volunteer?</button>
+        <button onclick="askSuggestion(this)">What support do you offer patients?</button>
+        <button onclick="askSuggestion(this)">How do caregivers get mentorship?</button>
+      </div>
+      <div class="chat-input-row">
+        <input type="text" id="chatInput" placeholder="Type your question here..." onkeydown="if(event.key==='Enter') sendMessage()" />
+        <button onclick="sendMessage()" class="send-btn">Send ➤</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <div>
+        <div class="nav-logo">🎗️ Jarurat Care</div>
+        <p>India's largest cancer care community — building hope, one family at a time.</p>
+      </div>
+      <div class="footer-links">
+        <a href="#about">About</a>
+        <a href="#register">Get Support</a>
+        <a href="#chatbot">AI Assistant</a>
+      </div>
+    </div>
+    <div class="footer-bottom">© 2024 Jarurat Care. Built with ❤️ for those who need it most.</div>
+  </footer>
+
+  <script src="./script.js"></script>
+</body>
+</html>
